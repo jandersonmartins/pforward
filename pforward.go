@@ -8,17 +8,17 @@ import (
 )
 
 type ForwardCnf struct {
-	serverPort int32
-	destHost   string
-	destPort   int32
+	ServerPort int32
+	DestHost   string
+	DestPort   int32
 }
 
 func Forward(cnf ForwardCnf) {
-	listener, err := net.Listen("tcp", fmt.Sprintf(":%d", cnf.serverPort))
+	listener, err := net.Listen("tcp", fmt.Sprintf(":%d", cnf.ServerPort))
 	if err != nil {
 		log.Fatalf("listener error: %v", err)
 	}
-	destAddress := fmt.Sprintf("%s:%d", cnf.destHost, cnf.destPort)
+	destAddress := fmt.Sprintf("%s:%d", cnf.DestHost, cnf.DestPort)
 	for {
 		conn, err := listener.Accept()
 		if err != nil {

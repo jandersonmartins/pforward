@@ -19,9 +19,9 @@ const (
 func TestForward(t *testing.T) {
 	go localServer()
 
-	go Forward(ForwardCnf{serverPort: 9001,
-		destHost: "127.0.0.1",
-		destPort: 9000})
+	go Forward(ForwardCnf{ServerPort: 9001,
+		DestHost: "127.0.0.1",
+		DestPort: 9000})
 
 	conn, err := net.DialTimeout(
 		"tcp",
